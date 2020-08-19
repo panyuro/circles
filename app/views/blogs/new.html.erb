@@ -1,0 +1,9 @@
+<h1> 写博客</h1>
+<%= form_for @blog, url: blogs_path, method: :post do |f| %>
+  <% @blog.errors.messages.values.flatten.each do |error| %>
+    <%= error %>
+  <% end -%>
+  <%= f.text_field :title, placeholder: "标题" %>
+  <%= f.text_area :content, placeholder: "内容" %>
+  <%= f.submit "创建" %>
+<% end -%>

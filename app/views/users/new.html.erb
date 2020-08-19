@@ -1,0 +1,10 @@
+<h1> 用户注册</h1>
+<%= form_for @user, url: users_path, method: :post do |f| %>
+  <% @user.errors.messages.values.flatten.each do |error| %>
+    <%= error %>
+  <% end -%>
+  <%= f.text_field :username, placeholder: "用户名" %>
+  <%= f.password_field :password, placeholder: "密码" %>
+  <%= f.submit "注册" %>
+  <%= link_to "登录",new_session_path %>
+<% end -%>
