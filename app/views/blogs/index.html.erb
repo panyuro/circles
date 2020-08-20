@@ -1,17 +1,4 @@
 <h1>博客列表</h1>
 <%= link_to '创建博客', new_blog_path, method: "post" %>
-<table>
-  <tr>
-    <th>博客标题</th>
-    <th>博客作者</th>
-    <th>博客内容</th>
-  </tr>
-  <% @blogs.each do |blog| %>
-    <tr>
-      <td><%= link_to blog.title, blog_path(blog) %></td>
-      <td><%= blog.user.username %></td>
-      <td><%= blog.content %></td>
-    </tr>
-  <% end -%>
-</table>
-<%= will_paginate @blogs %>
+<%= link_to '我的博客', blogs_user_path(current_user), method: "get" %>
+<%= render 'blogs' %>

@@ -1,0 +1,19 @@
+
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  host: 127.0.0.1
+  username: root
+
+development:
+  <<: *default
+  database: circles_development
+
+test:
+  <<: *default
+  database:  circles_test
+
+production:
+  <<: *default
+  database:  circles_production
