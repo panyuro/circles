@@ -6,7 +6,11 @@
   </tr>
   <% @blogs.each do |blog| %>
     <tr>
-      <td><%= link_to blog.title, blog_path(blog) %></td>
+      <td><%= link_to blog.title, blog_path(blog) %>
+        <% blog.tags.each do |tag| %>
+          <span class="badge"><%= tag.title %></span>
+        <% end-%>
+      </td>
       <td><%= blog.user.username %></td>
       <td><%= blog.content %></td>
     </tr>
