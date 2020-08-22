@@ -28,11 +28,11 @@ gem 'will_paginate','~>3.0.pre2'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-gem 'bootstrap-sass'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-
+gem 'bootstrap-sass', '~> 3.4.1'
+gem 'sassc-rails', '>= 2.1.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
