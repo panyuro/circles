@@ -26,6 +26,15 @@ class UsersController < ApplicationController
     @blogs = current_user.blogs.page(params[:page] || 1).per_page(params[:per_page] || 10).order('id desc')
   end
 
+  def show
+    @user = User.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.pdf { render pdf: generate_pdf(@user) }
+    end
+  end
+
   def download_pdf
     user = User.find(params[:id])
     send_data generate_pdf(user),
