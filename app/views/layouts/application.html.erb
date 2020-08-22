@@ -6,6 +6,8 @@
   <%= text_field_tag :username, value = params[:username] %>
   <%= submit_tag "搜索" %>
 <% end -%>
+<%= link_to '下载个人信息', download_pdf_user_path(current_user), method: "get" %>
+<%= link_to '下载磁盘中已经存在的文件', download_exist_pdf_user_path(current_user), method: "get" %>
 <% if logged_in? %>
   <%= link_to "#{current_user.username}退出", sessions_path(session[:user_id]), method: 'delete' %>
 <% else %>

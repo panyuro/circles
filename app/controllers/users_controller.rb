@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   layout false
+  require "prawn"
+
   def index
     @users = User.page(params[:page] || 1).per_page(params[:per_page] || 10).order('id desc')
   end
@@ -22,5 +24,28 @@ class UsersController < ApplicationController
 
   def blogs
     @blogs = current_user.blogs.page(params[:page] || 1).per_page(params[:per_page] || 10).order('id desc')
+  end
+
+  def download_pdf
+    user = User.find(params[:id])
+    send_data generate_pdf(user),
+              filename: "#{user.username}.pdf",
+              type: "application/pdf"
+  end
+
+  def download_exist_pdf
+    user = User.find(params[:id])
+    send_file("#{Rails.root}/files/users/#{user.id}.pdf",
+              filename: "#{user.username}.send.pdf",
+              type: "application/pdf")
+  end
+
+  private
+
+  def generate_pdf(user)
+    Prawn::Document.new do
+      text user.username, align: :center
+      text "password: #{user.password}"
+    end.render
   end
 end

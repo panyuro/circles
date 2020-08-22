@@ -2,8 +2,13 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   resources :users do
-    get :blogs, on: :member
+    member do
+      get :blogs
+      get :download_pdf
+      get :download_exist_pdf
+    end
   end
+
   resources :sessions
   resources :blogs
   delete 'logout', to: 'sessions#destroy', as: 'logout'
