@@ -1,24 +1,17 @@
-<h1>博客系统</h1>
-<li><a href="/">Home</a></li>
-<li><a href="<%= users_path %>">用户</a></li>
-<li><a href="<%= blogs_path %>">博客</a></li>
-<%= form_tag search_admin_users_path, method: "get" do %>
-  <%= text_field_tag :username, value = params[:username] %>
-  <%= submit_tag "搜索" %>
-<% end -%>
-<%= link_to '下载个人信息', download_pdf_user_path(current_user), method: "get" %>
-<%= link_to '下载磁盘中已经存在的文件', download_exist_pdf_user_path(current_user), method: "get" %>
-<% if logged_in? %>
-  <%= link_to "#{current_user.username}退出", sessions_path(session[:user_id]), method: 'delete' %>
-<% else %>
-  <%= link_to "登录", new_session_path %>
-<% end -%>
-<% if flash[:notice] %>
-  <%= flash[:notice] %>
-<% end -%>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>博客系统</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<a href="/">返回首页面</a>
 <body>
 <!--yield 调用子模块了！！！-->
 <%= yield %>
 </body>
+</html>
 
 

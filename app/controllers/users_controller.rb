@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  layout false
   require "prawn"
 
   def index

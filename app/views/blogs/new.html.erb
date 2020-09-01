@@ -1,10 +1,19 @@
-<h1> 写博客</h1>
+<h1>写博客</h1>
 <%= form_for @blog, url: blogs_path, method: :post do |f| %>
   <% @blog.errors.messages.values.flatten.each do |error| %>
     <%= error %>
   <% end -%>
-  <%= f.text_field :title, placeholder: "标题" %>
-  <%= f.text_area :content, placeholder: "内容" %>
-  <input type="text" name="tags" ,placeholder=标签"><small>标签以逗号分隔</small>
-  <%= f.submit "创建" %>
+  <div class="form-group">
+    <%= f.label :title, '标题' %>
+    <%= f.text_field :title, placeholder: "标题", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :title, '内容' %>
+    <%= f.text_area :content, placeholder: "内容", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :title, '标签' %>  <small>标签以逗号分隔</small>
+    <%= text_field_tag :tag, nil, placeholder: "标签", class: "form-control" %>
+  </div>
+  <%= f.submit "创建", class: "btn btn-default" %>
 <% end -%>

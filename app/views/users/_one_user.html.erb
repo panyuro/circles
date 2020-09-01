@@ -1,4 +1,7 @@
 <tr>
   <td><%= user.id %></td>
-  <td><%=link_to"#{user.username}", user_path(user)%></td>
+  <td><%= link_to "#{user.username}", user_path(user) %></td>
+  <td>
+    <li><%= link_to '下载', download_pdf_user_path(current_user), method: "get" %></li>
+  </td>
 </tr>

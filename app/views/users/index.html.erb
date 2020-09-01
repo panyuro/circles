@@ -1,12 +1,13 @@
 <h1>用户列表</h1>
-<table>
+<table class="table table-bordered">
   <tr>
     <th>ID</th>
     <th>用户名</th>
+    <th>个人信息</th>
   </tr>
-  <% @users.each do |user| %>
-  <%= render partial: "one_user", locals: {user: user} %>
-  <% end -%>
+  <%# @users.each do |user| %>
+  <%#= render partial: "one_user", locals: {user: user} %>
+  <%# end -%>
   <%= render partial: "one_user", collection: @users, as: 'user' %>
 </table>
 <%= will_paginate @users %>

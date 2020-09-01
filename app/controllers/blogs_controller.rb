@@ -1,5 +1,4 @@
 class BlogsController < ApplicationController
-  layout false
   before_action :auth_user, except: [:index, :show]
 
   def index
