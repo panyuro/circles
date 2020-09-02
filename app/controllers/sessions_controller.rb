@@ -2,28 +2,22 @@ class SessionsController < ApplicationController
   # layout false
   def new
   end
+
   def create
     @user = User.find_by(username: params[:username], password: params[:password])
 
     if @user
       sign_user @user
-      render json: {
-          status:"ok",
-          msg: {
-              redirect_url: root_path
-          }
-      }
+      redirect_to welcome_index_path
     else
-      render json: {
-          status:"error",
-          msg: "用户名或密码不正确"
-      }
+      flash[:notice] = "用户名或密码不正确"
+      render action: :new
     end
   end
 
   def destroy
     logout_user
     flash[:notice] = "退出成功"
-    redirect_to root_path
+    redirect_to new_session_path
   end
 end

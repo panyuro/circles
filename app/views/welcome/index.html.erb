@@ -1,15 +1,12 @@
-<h1>欢迎进入！</h1>
-<ul>
-  <% if logged_in? %>
-    <li>  <%= link_to "#{current_user.username}退出", logout_path, method: 'delete' %></li>
-    <li><a href="<%= users_path %>">用户列表</a></li>
-    <li><a href="<%= blogs_path %>">博客列表</a></li>
-    <li> <%= form_tag search_admin_users_path, method: "get" do %>
-        <%= text_field_tag :username, value = params[:username] %>
-        <%= submit_tag "搜索用户", class: "btn btn-primary" %>
-      <% end -%></li>
+<h1>欢迎进入首页面！</h1>
+<div class="container">
+  <ul>
+    <% if logged_in? %>
+      <li><a href="<%= users_path %>">用户列表</a></li>
+      <li><a href="<%= blogs_path %>">博客列表</a></li>
       <li><%= link_to '下载磁盘中已经存在的文件', download_exist_pdf_user_path(current_user), method: "get" %></li>
-  <% else %>
-    <%= link_to "登录", new_session_path %>
-  <% end -%>
-</ul>
+    <% else %>
+      <%= link_to "登录", new_session_path %>
+    <% end -%>
+  </ul>
+</div>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'welcome#index'
+  root 'users#new'
   resources :users do
     member do
       get :blogs
@@ -21,6 +21,12 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  controller :welcome do
+    get 'welcome/index'
+    post 'welcome/create'
+  end
+
   # resources :users, module: 'admin'
   # resources :users, only:[ :index ,:destroy]
   # 匹配：:get,:post的请求，都会匹配到该路由上
@@ -49,11 +55,6 @@ Rails.application.routes.draw do
   # resources :users do
   #   post :status, on::member
   #   get :online, on::collection
-  # end
-
-  # controller :welcome do
-  #   get'welcome/index'
-  #   post'welcome/create'
   # end
 
 end

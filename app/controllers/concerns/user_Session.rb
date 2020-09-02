@@ -23,7 +23,7 @@ module UserSession
     if logged_in?
       @current_user ||= User.find_by(session[:user_id].to_s)
     else
-      nill
+      nil
     end
   end
 end

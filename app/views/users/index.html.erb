@@ -1,13 +1,19 @@
-<h1>用户列表</h1>
-<table class="table table-bordered">
-  <tr>
-    <th>ID</th>
-    <th>用户名</th>
-    <th>个人信息</th>
-  </tr>
-  <%# @users.each do |user| %>
-  <%#= render partial: "one_user", locals: {user: user} %>
-  <%# end -%>
-  <%= render partial: "one_user", collection: @users, as: 'user' %>
-</table>
-<%= will_paginate @users %>
+<div class="container">
+  <h1>用户列表</h1>
+  <%= form_tag search_admin_users_path, method: "get" do %>
+    <%= text_field_tag :username, value = params[:username] %>
+    <%= submit_tag "搜索用户", class: "btn btn-primary" %>
+  <% end -%></li>
+  <table class="table table-bordered">
+    <tr>
+      <th>ID</th>
+      <th>用户名</th>
+      <th>个人信息</th>
+    </tr>
+    <%# @users.each do |user| %>
+    <%#= render partial: "one_user", locals: {user: user} %>
+    <%# end -%>
+    <%= render partial: "one_user", collection: @users, as: 'user' %>
+  </table>
+  <%= will_paginate @users %>
+</div>

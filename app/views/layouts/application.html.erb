@@ -7,7 +7,10 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
-<a href="/">返回首页面</a>
+<% if logged_in? %>
+  <%= link_to "#{current_user.username}退出", logout_path, method: 'delete', class: 'pull-right' %>
+  <%= link_to "返回首页面", welcome_index_path, class: 'pull-left' %><br>
+<%- end %>
 <body>
 <!--yield 调用子模块了！！！-->
 <%= yield %>

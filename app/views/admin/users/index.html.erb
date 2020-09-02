@@ -1,18 +1,20 @@
 <h1 class="text-center">后台管理/用户信息</h1>
-<table class="table table-bordered">
-  <tr>
-    <th>ID</th>
-    <th>用户名</th>
-    <th>邮箱</th>
-    <th>创建时间</th>
-  </tr>
-  <% @users.each do |user| %>
+<div class="container">
+  <table class="table table-bordered">
     <tr>
-      <td><%= user.id %></td>
-      <td><%= user.username %></td>
-      <td><%= user.email %></td>
-      <td><%= user.created_at %></td>
+      <th>ID</th>
+      <th>用户名</th>
+      <th>邮箱</th>
+      <th>创建时间</th>
     </tr>
-  <% end -%>
-</table>
-<%= will_paginate @users %>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.username %></td>
+        <td><%= user.email %></td>
+        <td><%= user.created_at %></td>
+      </tr>
+    <% end -%>
+  </table>
+  <%= will_paginate @users %>
+</div>
