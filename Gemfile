@@ -1,10 +1,13 @@
-source 'https://rubygems.org'
+source 'https://gems.ruby-china.com'
+# source 'http://rubygems.org'
+# source 'https://ruby.taobao.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
+gem 'bcrypt','3.1.11'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3', '~> 1.4'
 gem 'mysql2'
