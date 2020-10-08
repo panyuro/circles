@@ -4,9 +4,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(email: params[:email], password: params[:password])
+    @user = User.find_by email: params[:email]
+    exist = @user.authenticate(params[:password])
 
-    if @user
+    if exist
       sign_user @user
       redirect_to welcome_index_path
     else
