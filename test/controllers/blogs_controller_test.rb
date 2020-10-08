@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class BlogsControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should redirect to new" do
+    get blogs_url
+    assert_response :success
+  end
 end

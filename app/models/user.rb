@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :email, format: RegexpCollect::EMAIL, if: -> { email.present? },
             uniqueness: {case_sensitive: true}
   has_secure_password
-  validates :password, presence: {message: "密码不能为空"},
+  validates :password, presence: true,
             length: {minimum: 6, message: "密码长度最短为6位"}
   validates_confirmation_of :password
   before_save { self.email = email.downcase }

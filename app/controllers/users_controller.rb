@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params.require(:user).permit(:username, :password, :email))
+    @user = User.new(user_params)
     if @user.save
       UserMailer.welcome_email(@user).deliver_later
       #flash 是一次性的闪现信息，之后用户重新刷新页面等操作不会再出现
@@ -56,5 +56,9 @@ class UsersController < ApplicationController
       text user.username, align: :center
       text "password: #{user.password}"
     end.render
+  end
+
+  def user_params
+    params.require(:user).permit(:username, :password, :email,:password_confirmation)
   end
 end

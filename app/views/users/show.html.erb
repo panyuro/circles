@@ -1,0 +1,8 @@
+<div class="container">
+  <ul>
+    <li>ID:<%= @user.id %></li>
+    <li>用户名:<%= @user.username %></li>
+    <li>个人信息:<%= @user.email %></li>
+    <li><%= link_to '下载个人信息', download_pdf_user_path(current_user), method: "get" %></li>
+  </ul>
+</div>
