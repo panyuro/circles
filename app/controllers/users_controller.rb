@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if @user.save
       UserMailer.welcome_email(@user).deliver_later
       #flash 是一次性的闪现信息，之后用户重新刷新页面等操作不会再出现
-      flash[:notice] = "注册成功请登录"
+      flash[:success] = "注册成功请登录"
       redirect_to new_session_path
     else
       # 这里使用hash,定义render 一个action 保存上次@user对象，及其errors，作为显示，如果换成redirect to则无法保存上次的报错信息

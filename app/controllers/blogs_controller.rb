@@ -18,7 +18,7 @@ class BlogsController < ApplicationController
         one_tag = Tag.new(title: tag) unless one_tag
         @blog.tags << one_tag
       end
-      flash[:notice] = '博客创建成功'
+      flash[:success] = '博客创建成功'
       redirect_to blogs_path
     else
       flash[:notice] = '博客创建失败'
