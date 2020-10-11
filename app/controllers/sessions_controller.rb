@@ -4,8 +4,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by email: params[:email]
-    exist = @user.authenticate(params[:password])
+    @user = User.find_by(email: params[:session][:email].downcase)
+    exist = @user.authenticate(params[:session][:password])
 
     if exist
       sign_user @user
