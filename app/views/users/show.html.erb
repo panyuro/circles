@@ -1,8 +1,17 @@
-<div class="container">
-  <ul>
-    <li>ID:<%= @user.id %></li>
-    <li>用户名:<%= @user.username %></li>
-    <li>个人信息:<%= @user.email %></li>
-    <li><%= link_to '下载个人信息', download_pdf_user_path(current_user), method: "get" %></li>
-  </ul>
+<div class="show-form-container col-md-offset-5">
+  <h1>个人信息</h1>
+  <dl class="dl-horizontal">
+    <dt>用户名</dt>
+    <dd><%= @user.username %></dd>
+
+    <dt>邮箱</dt>
+    <dd><%= @user.email %></dd>
+
+    <dt>用户注册时间</dt>
+    <dd><%= @user.created_at.to_date %></dd>
+
+    <dt>下载个人信息</dt>
+    <%= link_to '链接', download_pdf_user_path(current_user), method: "get" %>
+
+  </dl>
 </div>

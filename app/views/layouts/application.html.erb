@@ -8,10 +8,27 @@
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-<% if logged_in? %>
-  <%= link_to "#{current_user.username}退出", logout_path, method: 'delete', class: 'pull-right' %>
-  <%= link_to "返回首页面", welcome_index_path, class: 'pull-left' %><br>
-<%- end %>
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="nav navbar-nav navbar-left">
+    <% home_path = logged_in? ? blogs_user_path(current_user) : welcome_index_path %>
+    <li> <%= link_to "返回首页面", home_path, class: "pull-left" %></li>
+    <li><a href="<%= blogs_path %>">查看所有博客</a></li>
+  </div>
+  <nav>
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to "home", '#' %></li>
+      <li><%= link_to "help", '#' %></li>
+      <li>
+        <% if logged_in? %>
+        <li><%= link_to "profile", user_path(current_user) %></li>
+        <li><%= link_to "#{current_user.username}退出", logout_path, method: 'delete', class: 'pull-right' %></li>
+      <% else %>
+        <%= link_to "sign up", new_session_path %>
+      <%- end %>
+      </li>
+    </ul>
+  </nav>
+</header>
 <% flash.each do |message_type, message| %>
   <div class="alert alert-<%= message_type %>"><%= message %></div>
 <% end %>

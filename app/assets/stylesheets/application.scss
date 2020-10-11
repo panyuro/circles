@@ -18,10 +18,45 @@ h1, h2 {
   text-align: center;
 }
 
-.container{
+.container {
+  margin-top: 70px;
+}
+
+.show-form-container {
   text-align: center;
+  margin-top: 270px;
   width: 300px;
 }
-.warning{
+
+.show-container {
+  text-align: center;
+  margin-top: 200px;
+}
+
+.title {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.warning {
   color: #B00100;
+}
+
+.navbar-inverse {
+  background-color: firebrick;
+  height: 70px;
+  color: white;
+
+  .navbar-nav > li > a {
+    color: white;
+  }
+}
+
+.mt-200 {
+  margin-top: 200px !important;
+}
+
+.table th, .table td {
+  text-align: center;
+  height: 38px;
 }

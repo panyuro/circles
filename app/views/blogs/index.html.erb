@@ -1,4 +1,4 @@
-<h1>博客列表</h1>
-  <%= link_to '创建博客', new_blog_path, method: "get", class: 'pull-left btn btn-primary col-md-1 col-md-offset-1' %>
-  <%= link_to '我的博客', blogs_user_path(current_user), method: "get", class: 'pull-left btn btn-primary col-md-1 col-md-offset-8' %>
+<div class="show-container">
+  <h1>博客列表</h1>
   <%= render 'blogs' %>
+</div>

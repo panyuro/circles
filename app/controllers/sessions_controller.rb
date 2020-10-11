@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if exist
       sign_user @user
-      redirect_to welcome_index_path
+      redirect_to blogs_user_path(current_user)
     else
       flash[:notice] = "用户名或密码不正确"
       render action: :new

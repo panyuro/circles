@@ -1,12 +1,5 @@
-<h1>欢迎进入首页面！</h1>
 <div class="container">
-  <ul>
-    <% if logged_in? %>
-      <li><a href="<%= users_path %>">用户列表</a></li>
-      <li><a href="<%= blogs_path %>">博客列表</a></li>
-      <li><%= link_to '下载磁盘中已经存在的文件', download_exist_pdf_user_path(current_user), method: "get" %></li>
-    <% else %>
-      <%= link_to "登录", new_session_path %>
-    <% end -%>
-  </ul>
+  <h1>博客系统</h1>
+  <h2>Welcome to the Circles App </h2>
+  <%= link_to "sign up now", new_session_path, class:'title btn btn-primary col-md-2 col-md-offset-5'%>
 </div>

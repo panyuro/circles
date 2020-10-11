@@ -1,2 +1,5 @@
+<div class="show-container">
 <h1><%= current_user.username %>的博客</h1>
+<%= link_to '创建博客', new_blog_path, method: "get", class: 'pull-left btn btn-danger' %>
 <%= render 'blogs/blogs' %>
+</div>
