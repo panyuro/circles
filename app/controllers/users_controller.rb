@@ -53,12 +53,18 @@ class UsersController < ApplicationController
 
   def generate_pdf(user)
     Prawn::Document.new do
-      text user.username, align: :center
-      text "password: #{user.password}"
+      font_families["msyh"] = {
+          :normal => {:file => "/Users/yuroupan/circles/app/assets/fonts/Songti.ttc"}
+      }
+      font("msyh") do
+        text user.username, align: :center
+        text "邮箱: #{user.email}"
+        text "用户注册时间：#{user.created_at.to_date}"
+      end
     end.render
   end
 
   def user_params
-    params.require(:user).permit(:username, :password, :email,:password_confirmation)
+    params.require(:user).permit(:username, :password, :email, :password_confirmation)
   end
 end
