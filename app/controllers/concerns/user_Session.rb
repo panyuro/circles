@@ -13,6 +13,7 @@ module UserSession
 
   def logout_user
     session[:user_id] = nil
+    @current_user = nil
   end
 
   def logged_in?

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'static_pages/home'
-  get 'static_pages/help'
-  get 'static_pages/about'
+  get '/contact', to: 'static_pages#contact'
+  get '/help', to: 'static_pages#help'
+  get '/about', to: 'static_pages#about'
   root 'welcome#index'
   resources :users do
     member do
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy', as: 'logout'
 
   namespace :admin do
-    root 'users#index'
+    root to:'users#index'
     resources :users do
       collection do
         get :search

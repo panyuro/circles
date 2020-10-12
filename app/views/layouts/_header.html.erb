@@ -1,0 +1,25 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="nav navbar-nav navbar-left mt-800">
+    <li><a href="<%= blogs_path %>">所有博客</a></li>
+  </div>
+  <nav>
+    <ul class="nav navbar-nav navbar-right">
+      <% path = logged_in? ? blogs_path(current_user) :root_path  %>
+      <li><%= link_to "Home", path %></li>
+      <li><%= link_to "Help", help_path %></li>
+      <li>
+        <% if logged_in? %>
+<!--        <li><%#= link_to "profile", user_path(current_user) %></li>-->
+        <li><%= link_to "Login out", logout_path, method: 'delete', class: 'pull-right' %></li>
+      <% else %>
+        <%= link_to "Login in", new_session_path %>
+      <%- end %>
+      </li>
+    </ul>
+  </nav>
+</header>
+<script>
+$(function() {
+   $('.dropdown-toggle').dropdown()
+});
+</script>

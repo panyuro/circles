@@ -19,6 +19,6 @@ class SessionsController < ApplicationController
   def destroy
     logout_user
     flash[:success] = "退出成功"
-    redirect_to new_session_path
+    redirect_to root_url
   end
 end

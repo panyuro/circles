@@ -1,4 +1,3 @@
-<div class="show-container">
   <h1>写博客</h1>
   <%= form_for @blog, url: blogs_path, method: :post do |f| %>
     <% @blog.errors.messages.values.flatten.each do |error| %>
@@ -13,6 +12,5 @@
     <div class="form-group">
       <%= text_field_tag :tags, nil, placeholder: "标签,以逗号分隔", class: "form-control" %>
     </div>
-    <%= f.submit "创建", class: "btn btn-danger col-md-2 col-md-offset-5" %>
+    <%= f.submit "创建", class: "btn btn-primary col-md-2 col-md-offset-5" %>
   <% end -%>
-</div>

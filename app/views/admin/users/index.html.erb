@@ -1,24 +1,18 @@
-<div class="show-container">
-  <h1>后台管理/用户信息</h1>
-  <table class="table table-bordered">
+<h1>用户后台管理</h1>
+<table class="table table-bordered">
+  <tr>
+    <th>ID</th>
+    <th>用户名</th>
+    <th>邮箱</th>
+    <th>创建时间</th>
+  </tr>
+  <% @users.each do |user| %>
     <tr>
-      <th>ID</th>
-      <th>用户名</th>
-      <th>邮箱</th>
-      <th>创建时间</th>
-      <th>创建的博客</th>
-      <th>个人信息导出</th>
+      <td><%= user.id %></td>
+      <td><%= user.username%></td>
+      <td><%= user.email %></td>
+      <td><%= user.created_at.to_date %></td>
     </tr>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.id %></td>
-        <td><%= link_to user.username, user_path(current_user) %></td>
-        <td><%= user.email %></td>
-        <td><%= user.created_at.to_date %></td>
-        <td><%= link_to '博客列表', blogs_user_path(current_user) %></td>
-        <td><%= link_to '链接', download_pdf_user_path(current_user), method: "get" %></td>
-      </tr>
-    <% end -%>
-  </table>
-  <%= will_paginate @users %>
-</div>
+  <% end -%>
+</table>
+<%= will_paginate @users %>
