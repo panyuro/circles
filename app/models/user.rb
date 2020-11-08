@@ -15,4 +15,9 @@ class User < ApplicationRecord
             length: {minimum: 6, message: "密码长度最短为6位"}
   validates_confirmation_of :password
   before_save { self.email = email.downcase }
+
+  # 返回指定字符串的哈希摘要
+  def digest(string)
+    cost = ActiveModel::SecurePassword.min_cost
+  end
 end
